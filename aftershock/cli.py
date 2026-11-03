@@ -212,7 +212,9 @@ def routes_cmd(a):
 
 
 def main(argv=None):
+    from . import __version__
     p = argparse.ArgumentParser(prog="aftershock")
+    p.add_argument("--version", action="version", version=f"aftershock {__version__}")
     sub = p.add_subparsers(required=True)
     s = sub.add_parser("api-impact", help="library API diff -> consumer candidates -> verified consequences")
     s.add_argument("--lib", required=True, help="library checkout (git repo)")

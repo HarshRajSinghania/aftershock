@@ -1137,3 +1137,11 @@ def test_same_named_base_class_and_subclass_reach_the_member(tmp_path):
     got = {(s.file, s.line, s.finding.path) for s in reach.candidates(tmp_path, fs)}
     assert ("pkg/sansio/request.py", 3, "pkg/wrappers.py") in got and ("app.py", 4, "pkg/wrappers.py") in got
     assert ("pkg/base.py", 5, "pkg/base.py") in got and ("pkg/base.py", 5, "pkg/wrappers.py") not in got
+
+
+def test_cli_reports_its_version(capsys):
+    import pytest
+    from aftershock import __version__, cli
+    with pytest.raises(SystemExit):
+        cli.main(["--version"])
+    assert capsys.readouterr().out.strip() == f"aftershock {__version__}"
