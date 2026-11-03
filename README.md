@@ -1,6 +1,7 @@
 # aftershock
 
 [![tests](https://github.com/apoorv1997/aftershock/actions/workflows/tests.yml/badge.svg)](https://github.com/apoorv1997/aftershock/actions/workflows/tests.yml)
+[![PyPI](https://img.shields.io/pypi/v/aftershock.svg)](https://pypi.org/project/aftershock/)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **Find the exact lines a library, API or config change breaks in other code — verified, with `file:line`, never a risk score.**
@@ -21,8 +22,8 @@ what changed (griffe API diff)  ─►  who might use it (AST candidates)  ─�
 ## Install
 
 ```bash
-pip install "aftershock @ git+https://github.com/apoorv1997/aftershock"            # rules only
-pip install "aftershock[model] @ git+https://github.com/apoorv1997/aftershock"     # + model judgement
+pip install aftershock               # rules only
+pip install "aftershock[model]"      # + model judgement
 ```
 
 Python 3.11+. The rules-only install depends on `griffe` alone; spans the rules cannot decide are listed for review.
